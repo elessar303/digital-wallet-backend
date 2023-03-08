@@ -1,0 +1,43 @@
+type Query {
+  wallets: [Wallet]
+  rates: [ExchangeRate]
+}
+
+type Mutation {
+  saveWallet(saveWalletInput: SaveWalletInput): Wallet
+  updateExchange(exchageRateInput: ExchageRateInput): ExchangeRate
+  createWallet(address: String): WalletDetail
+}
+
+type Wallet {
+  address: String
+  firstTransacctionTime: String
+  isOld: Boolean
+  ethBalance: Float
+}
+
+type WalletDetail {
+  status: String
+  message: String
+  result: String
+  ethBalance: Float
+  firstTransacctionTime: String
+  isOld: Boolean
+}
+
+type ExchangeRate {
+  currency: String
+  rate: Float
+}
+
+input SaveWalletInput {
+  address: String
+  firstTransacctionTime: String
+  isOld: Boolean
+  ethBalance: Float
+}
+
+input ExchageRateInput {
+  currency: String
+  rate: Float
+}
